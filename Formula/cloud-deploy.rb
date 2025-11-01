@@ -5,51 +5,63 @@
 class CloudDeploy < Formula
   desc "Manifest-driven multi-cloud deployment tool for AWS, GCP, Azure, and OCI"
   homepage "https://github.com/jvreagan/cloud-deploy"
-  version "0.3.0"
+  version "0.3.1"
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/jvreagan/cloud-deploy/releases/download/v0.3.0/cloud-deploy_Darwin_arm64.tar.gz"
-      sha256 "430db70567597a2f58c6faebcc38aed4b8050d2fb8538f5bbfed28b91d1db049"
+    on_intel do
+      url "https://github.com/jvreagan/cloud-deploy/releases/download/v0.3.1/cloud-deploy_Darwin_x86_64.tar.gz"
+      sha256 "c607f626257a1b18db81c5aa8a93c13d0f598f35cedb468d1af05fe96d861045"
 
       def install
         bin.install "cloud-deploy"
         bin.install "manifest-ui"
+
+        # Install web UI assets
         (prefix/"web").install Dir["web/*"]
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/jvreagan/cloud-deploy/releases/download/v0.3.0/cloud-deploy_Darwin_x86_64.tar.gz"
-      sha256 "998e607b6e2b5aabca74265dc84da48253c7ff3c67bdbe98d89c5f49ec543f64"
+    on_arm do
+      url "https://github.com/jvreagan/cloud-deploy/releases/download/v0.3.1/cloud-deploy_Darwin_arm64.tar.gz"
+      sha256 "7415658f79d3cd7094cb0956b10d9d41412176a1cb9cc6def238450f61b192f1"
 
       def install
         bin.install "cloud-deploy"
         bin.install "manifest-ui"
+
+        # Install web UI assets
         (prefix/"web").install Dir["web/*"]
       end
     end
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/jvreagan/cloud-deploy/releases/download/v0.3.0/cloud-deploy_Linux_arm64.tar.gz"
-      sha256 "4d5c78caccc5aad2e0a6f94d0ca487f50dc4fec051dd248e898860f3b6e0da4c"
+    on_intel do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/jvreagan/cloud-deploy/releases/download/v0.3.1/cloud-deploy_Linux_x86_64.tar.gz"
+        sha256 "012eb841cb88aef893d917846cd4d970d23f21205a66921927a68fc8c24d2cf7"
 
-      def install
-        bin.install "cloud-deploy"
-        bin.install "manifest-ui"
-        (prefix/"web").install Dir["web/*"]
+        def install
+          bin.install "cloud-deploy"
+          bin.install "manifest-ui"
+
+          # Install web UI assets
+          (prefix/"web").install Dir["web/*"]
+        end
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/jvreagan/cloud-deploy/releases/download/v0.3.0/cloud-deploy_Linux_x86_64.tar.gz"
-      sha256 "f22c299c80ccf5bb8128f59a781e02a2d9e77764eda418138b718e02972d5721"
+    on_arm do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/jvreagan/cloud-deploy/releases/download/v0.3.1/cloud-deploy_Linux_arm64.tar.gz"
+        sha256 "9ba2b05acfb6844cee5bc3c2a5005d4e385afb7d3d561b7f77e87ceb154f0f49"
 
-      def install
-        bin.install "cloud-deploy"
-        bin.install "manifest-ui"
-        (prefix/"web").install Dir["web/*"]
+        def install
+          bin.install "cloud-deploy"
+          bin.install "manifest-ui"
+
+          # Install web UI assets
+          (prefix/"web").install Dir["web/*"]
+        end
       end
     end
   end
