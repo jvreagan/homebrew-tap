@@ -5,12 +5,12 @@
 class CloudDeploy < Formula
   desc "Manifest-driven multi-cloud deployment tool for AWS, GCP, Azure, and OCI"
   homepage "https://github.com/jvreagan/cloud-deploy"
-  version "0.2.0"
+  version "0.3.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/jvreagan/cloud-deploy/releases/download/v0.2.0/cloud-deploy_Darwin_arm64.tar.gz"
+      url "https://github.com/jvreagan/cloud-deploy/releases/download/v0.3.0/cloud-deploy_Darwin_arm64.tar.gz"
       sha256 "430db70567597a2f58c6faebcc38aed4b8050d2fb8538f5bbfed28b91d1db049"
 
       def install
@@ -20,7 +20,7 @@ class CloudDeploy < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/jvreagan/cloud-deploy/releases/download/v0.2.0/cloud-deploy_Darwin_x86_64.tar.gz"
+      url "https://github.com/jvreagan/cloud-deploy/releases/download/v0.3.0/cloud-deploy_Darwin_x86_64.tar.gz"
       sha256 "998e607b6e2b5aabca74265dc84da48253c7ff3c67bdbe98d89c5f49ec543f64"
 
       def install
@@ -33,7 +33,7 @@ class CloudDeploy < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/jvreagan/cloud-deploy/releases/download/v0.2.0/cloud-deploy_Linux_arm64.tar.gz"
+      url "https://github.com/jvreagan/cloud-deploy/releases/download/v0.3.0/cloud-deploy_Linux_arm64.tar.gz"
       sha256 "4d5c78caccc5aad2e0a6f94d0ca487f50dc4fec051dd248e898860f3b6e0da4c"
 
       def install
@@ -43,7 +43,7 @@ class CloudDeploy < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/jvreagan/cloud-deploy/releases/download/v0.2.0/cloud-deploy_Linux_x86_64.tar.gz"
+      url "https://github.com/jvreagan/cloud-deploy/releases/download/v0.3.0/cloud-deploy_Linux_x86_64.tar.gz"
       sha256 "f22c299c80ccf5bb8128f59a781e02a2d9e77764eda418138b718e02972d5721"
 
       def install
