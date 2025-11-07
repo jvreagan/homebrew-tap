@@ -5,13 +5,13 @@
 class CloudDeploy < Formula
   desc "Manifest-driven multi-cloud deployment tool for AWS, GCP, Azure, and OCI"
   homepage "https://github.com/jvreagan/cloud-deploy"
-  version "1.1.0"
+  version "1.2.0"
   license "MIT"
 
   on_macos do
     on_intel do
-      url "https://github.com/jvreagan/cloud-deploy/releases/download/v1.1.0/cloud-deploy_Darwin_x86_64.tar.gz"
-      sha256 "bdfda344f25c4259ddb05ed654ed639ddc6b17c872422d6a976151a49e59665a"
+      url "https://github.com/jvreagan/cloud-deploy/releases/download/v1.2.0/cloud-deploy_Darwin_x86_64.tar.gz"
+      sha256 "bc8fd7716ae051f098d6eff325aee18f100931f5fe0accd092936924da69b266"
 
       def install
         bin.install "cloud-deploy"
@@ -22,8 +22,8 @@ class CloudDeploy < Formula
       end
     end
     on_arm do
-      url "https://github.com/jvreagan/cloud-deploy/releases/download/v1.1.0/cloud-deploy_Darwin_arm64.tar.gz"
-      sha256 "c04131fa02a7e16889bf153cacde8fd24be4479255fab249be0b7a4527b0974c"
+      url "https://github.com/jvreagan/cloud-deploy/releases/download/v1.2.0/cloud-deploy_Darwin_arm64.tar.gz"
+      sha256 "bea3c023d953bd6bee63aec610d52cccf64a4ff0d4075d46086f45f10f5af403"
 
       def install
         bin.install "cloud-deploy"
@@ -38,8 +38,8 @@ class CloudDeploy < Formula
   on_linux do
     on_intel do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/jvreagan/cloud-deploy/releases/download/v1.1.0/cloud-deploy_Linux_x86_64.tar.gz"
-        sha256 "1c66ea6f926f1e880236dbae7ef0a0b11f581f8d49c811e84cf60e08c6d4d6d7"
+        url "https://github.com/jvreagan/cloud-deploy/releases/download/v1.2.0/cloud-deploy_Linux_x86_64.tar.gz"
+        sha256 "2f26fd4a681267225a158331d4927b966b487c5bd9e25a0d9b73c17b90c44874"
 
         def install
           bin.install "cloud-deploy"
@@ -52,8 +52,8 @@ class CloudDeploy < Formula
     end
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/jvreagan/cloud-deploy/releases/download/v1.1.0/cloud-deploy_Linux_arm64.tar.gz"
-        sha256 "d207a96b2ec15816987d8d9f4db5715217926b964e771938f036a99cfc6b347a"
+        url "https://github.com/jvreagan/cloud-deploy/releases/download/v1.2.0/cloud-deploy_Linux_arm64.tar.gz"
+        sha256 "1c81a36299c190866be664f83d41d121721ba451ae64480c45375dc35a159f74"
 
         def install
           bin.install "cloud-deploy"
